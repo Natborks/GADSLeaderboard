@@ -1,5 +1,7 @@
 package com.example.gadsleaderboard.adapters;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -7,21 +9,33 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gadsleaderboard.Models.LearningLeader;
+import com.example.gadsleaderboard.models.LearningLeader;
 import com.example.gadsleaderboard.R;
+
+import java.util.List;
 
 public class LearningLeaderAdapter
         extends RecyclerView.Adapter<LearningLeaderAdapter.learningLeaderViewHodler>{
+    Context mContext;
+    List<LearningLeader> mLearningLeaders;
+
+    public LearningLeaderAdapter(Context context, List<LearningLeader> learningLeaders) {
+        mContext = context;
+        mLearningLeaders = learningLeaders;
+    }
 
     @NonNull
     @Override
     public learningLeaderViewHodler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(mContext)
+                .inflate(R.layout.item_learning_leader, parent, false);
+
+        return new learningLeaderViewHodler(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull learningLeaderViewHodler holder, int position) {
-
+        holder.bind(mLearningLeaders.get(position));
     }
 
     @Override

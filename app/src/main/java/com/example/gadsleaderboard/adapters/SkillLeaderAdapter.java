@@ -1,5 +1,7 @@
 package com.example.gadsleaderboard.adapters;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -7,20 +9,32 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gadsleaderboard.Models.LearningLeader;
+import com.example.gadsleaderboard.models.SkillLeader;
 import com.example.gadsleaderboard.R;
 
+import java.util.List;
+
 public class SkillLeaderAdapter extends RecyclerView.Adapter<SkillLeaderAdapter.SkillLeaderViewHolder>{
+    Context mContext;
+    List<SkillLeader> mSkillLeaders;
+
+    public SkillLeaderAdapter(Context context, List<SkillLeader> SkillLeaders) {
+        mContext = context;
+        mSkillLeaders = SkillLeaders;
+    }
 
     @NonNull
     @Override
     public SkillLeaderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(mContext)
+                .inflate(R.layout.item_skill_leader, parent, false);
+
+        return new SkillLeaderViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull SkillLeaderViewHolder holder, int position) {
-
+        holder.bind(mSkillLeaders.get(position));
     }
 
     @Override
@@ -40,7 +54,7 @@ public class SkillLeaderAdapter extends RecyclerView.Adapter<SkillLeaderAdapter.
             learningHours = itemView.findViewById(R.id.learning_hours);
         }
 
-        public void bind(LearningLeader learningLeader){
+        public void bind(SkillLeader learningLeader){
             name.setText(learningLeader.getName());
             country.setText(learningLeader.getCountry());
             learningHours.setText(learningLeader.getNumberOfLearningHours());

@@ -1,4 +1,4 @@
-package com.example.gadsleaderboard.Models;
+package com.example.gadsleaderboard.models;
 
 public class LearningLeader {
     String country;
