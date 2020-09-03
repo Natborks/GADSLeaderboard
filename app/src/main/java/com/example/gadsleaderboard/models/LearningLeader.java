@@ -5,6 +5,16 @@ public class LearningLeader {
     String numberOfLearningHours;
     String name;
 
+    public String getBadgeUrl() {
+        return badgeUrl;
+    }
+
+    public void setBadgeUrl(String badgeUrl) {
+        this.badgeUrl = badgeUrl;
+    }
+
+    String badgeUrl;
+
     public String getName() {
         return name;
     }

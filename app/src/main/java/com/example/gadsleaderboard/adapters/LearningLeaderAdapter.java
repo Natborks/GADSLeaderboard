@@ -40,7 +40,12 @@ public class LearningLeaderAdapter
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mLearningLeaders.size();
+    }
+
+    public void setLearningLeader(List<LearningLeader> learningLeaders) {
+        this.mLearningLeaders = learningLeaders;
+        notifyDataSetChanged();
     }
 
     class learningLeaderViewHodler extends RecyclerView.ViewHolder{

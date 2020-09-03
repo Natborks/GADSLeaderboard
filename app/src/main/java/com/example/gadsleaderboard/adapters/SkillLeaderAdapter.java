@@ -39,7 +39,12 @@ public class SkillLeaderAdapter extends RecyclerView.Adapter<SkillLeaderAdapter.
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mSkillLeaders.size();
+    }
+
+    public void setSkillLeaders(List<SkillLeader> skillLeaders) {
+        this.mSkillLeaders = skillLeaders;
+        notifyDataSetChanged();
     }
 
     class SkillLeaderViewHolder extends RecyclerView.ViewHolder{

@@ -29,4 +29,14 @@ public class SkillLeader {
 
     String country;
     String numberOfLearningHours;
+
+    public String getBadgeUrl() {
+        return badgeUrl;
+    }
+
+    public void setBadgeUrl(String badgeUrl) {
+        this.badgeUrl = badgeUrl;
+    }
+
+    String badgeUrl;
 }
