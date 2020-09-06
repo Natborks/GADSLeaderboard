@@ -7,4 +7,6 @@
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="button_radius">200dp</dimen>
     <dimen name="default_button_stroke">1px</dimen>
+    <dimen name="radius_edittext">10dp</dimen>
+    <dimen name="et_height">40dp</dimen>
 </resources>
