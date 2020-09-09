@@ -3,6 +3,9 @@ package com.example.gadsleaderboard.models;
 public class SkillLeader {
     String name;
 
+    String country;
+    String score;
+
     public String getName() {
         return name;
     }
@@ -19,16 +22,14 @@ public class SkillLeader {
         this.country = country;
     }
 
-    public String getNumberOfLearningHours() {
-        return numberOfLearningHours;
+    public String getScore() {
+        return score;
     }
 
-    public void setNumberOfLearningHours(String numberOfLearningHours) {
-        this.numberOfLearningHours = numberOfLearningHours;
+    public void setScore(String score) {
+        this.score = score;
     }
 
-    String country;
-    String numberOfLearningHours;
 
     public String getBadgeUrl() {
         return badgeUrl;

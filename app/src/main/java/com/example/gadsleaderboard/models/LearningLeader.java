@@ -2,7 +2,7 @@ package com.example.gadsleaderboard.models;
 
 public class LearningLeader {
     String country;
-    String numberOfLearningHours;
+    String hours;
     String name;
 
     public String getBadgeUrl() {
@@ -31,12 +31,12 @@ public class LearningLeader {
         this.country = country;
     }
 
-    public String getNumberOfLearningHours() {
-        return numberOfLearningHours;
+    public String getHours() {
+        return hours;
     }
 
-    public void setNumberOfLearningHours(String numberOfLearningHours) {
-        this.numberOfLearningHours = numberOfLearningHours;
+    public void setHours(String hours) {
+        this.hours = hours;
     }
 
 

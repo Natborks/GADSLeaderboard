@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.gadsleaderboard.R;
 import com.example.gadsleaderboard.adapters.LearningLeaderAdapter;
 import com.example.gadsleaderboard.models.LearningLeader;
@@ -51,8 +52,11 @@ public class LearningLeaders extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
 
+        final LottieAnimationView animationView = root.findViewById(R.id.progressBar);
+        animationView.setSpeed(3.0f);
+
         mLearningLeaders = new ArrayList<>();
-        RecyclerView recyclerView = root.findViewById(R.id.rv_learning_leader);
+        final RecyclerView recyclerView = root.findViewById(R.id.rv_learning_leader);
         mLearningLeaderAdapter = new LearningLeaderAdapter(getContext(), mLearningLeaders);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(mLearningLeaderAdapter);
@@ -63,6 +67,8 @@ public class LearningLeaders extends Fragment {
                 .observe(getViewLifecycleOwner(), new Observer<List<LearningLeader>>() {
                     @Override
                     public void onChanged(List<LearningLeader> learningLeaders) {
+                        recyclerView.setVisibility(View.VISIBLE);
+                        animationView.setVisibility(View.GONE);
                         mLearningLeaders = learningLeaders;
                         mLearningLeaderAdapter.setLearningLeader(mLearningLeaders);
                     }

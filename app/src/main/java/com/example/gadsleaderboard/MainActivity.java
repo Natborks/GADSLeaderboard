@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieDrawable;
 import com.example.gadsleaderboard.ui.Submissions.SubmissionActivity;
 import com.google.android.material.tabs.TabLayout;
 
@@ -33,5 +35,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void setUpAnimation(){
+        LottieAnimationView lottieAnimationView = findViewById(R.id.progressBar);
+        lottieAnimationView.setSpeed(2.0f);
+
     }
 }

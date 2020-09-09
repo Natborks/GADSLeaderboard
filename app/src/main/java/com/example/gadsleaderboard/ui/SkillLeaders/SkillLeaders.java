@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.gadsleaderboard.R;
 import com.example.gadsleaderboard.adapters.SkillLeaderAdapter;
 import com.example.gadsleaderboard.models.SkillLeader;
@@ -33,7 +34,10 @@ public class SkillLeaders extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_skill, container, false);
 
-        RecyclerView recyclerView = view.findViewById(R.id.rv_skillLeaders);
+       final LottieAnimationView animationView = view.findViewById(R.id.progressBar);
+        animationView.setSpeed(5.0f);
+
+        final RecyclerView recyclerView = view.findViewById(R.id.rv_skillLeaders);
         final SkillLeaderAdapter skillLeaderAdapter = new SkillLeaderAdapter(getContext(), mSkillLeaders);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(skillLeaderAdapter);
@@ -43,6 +47,8 @@ public class SkillLeaders extends Fragment {
                 .observe(getViewLifecycleOwner(), new Observer<List<SkillLeader>>() {
                     @Override
                     public void onChanged(List<SkillLeader> skillLeaders) {
+                        animationView.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
                         mSkillLeaders = skillLeaders;
                         skillLeaderAdapter.setSkillLeaders(mSkillLeaders);
                     }

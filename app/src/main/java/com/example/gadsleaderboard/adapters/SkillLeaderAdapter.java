@@ -62,7 +62,8 @@ public class SkillLeaderAdapter extends RecyclerView.Adapter<SkillLeaderAdapter.
         public void bind(SkillLeader learningLeader){
             name.setText(learningLeader.getName());
             country.setText(learningLeader.getCountry());
-            learningHours.setText(learningLeader.getNumberOfLearningHours());
+            String learning = "Skill IQ score " + learningLeader.getScore() + ", ";
+            learningHours.setText(learning);
         }
     }
 }

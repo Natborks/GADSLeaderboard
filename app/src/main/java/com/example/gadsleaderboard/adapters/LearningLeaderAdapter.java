@@ -63,7 +63,8 @@ public class LearningLeaderAdapter
         public void bind(LearningLeader learningLeader){
             name.setText(learningLeader.getName());
             country.setText(learningLeader.getCountry());
-            learningHours.setText(learningLeader.getNumberOfLearningHours());
+            String hours = learningLeader.getHours() + " learning hours, ";
+            learningHours.setText(hours);
         }
     }
 }
